@@ -1,0 +1,22 @@
+CREATE TABLE [query] (
+    num   INTEGER     PRIMARY KEY AUTOINCREMENT
+                      UNIQUE ON CONFLICT ABORT
+                      NOT NULL ON CONFLICT ABORT,
+    essid STRING (64) NOT NULL ON CONFLICT ABORT
+                      DEFAULT Unknown,
+    bssid STRING (17) NOT NULL ON CONFLICT ABORT
+);
+
+CREATE TABLE ap (
+    essid   STRING (64) NOT NULL ON CONFLICT ABORT
+                        DEFAULT Unknown,
+    bssid   STRING (17) PRIMARY KEY ON CONFLICT ABORT
+                        UNIQUE ON CONFLICT ABORT
+                        NOT NULL ON CONFLICT ABORT,
+    encrypt BOOLEAN     NOT NULL ON CONFLICT ABORT,
+    freq    STRING (5),
+    ch      INTEGER,
+    sig     INTEGER,
+    qual    INTEGER
+);
+

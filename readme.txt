@@ -1,0 +1,1 @@
+Change path this directory in "config.sh" and "run.sh" files.
